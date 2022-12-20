@@ -4,6 +4,7 @@
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Release](https://img.shields.io/nuget/v/ricaun.Autodesk.Forge.Oss?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/ricaun.Autodesk.Forge.Oss)
 
 ## Overview
 
