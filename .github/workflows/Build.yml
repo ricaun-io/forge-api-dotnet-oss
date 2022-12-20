@@ -32,6 +32,5 @@ jobs:
           GitHubToken: ${{ secrets.GITHUB_TOKEN }}
           SignFile: ${{ secrets.SIGN_FILE }}
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
-          InstallationFiles: ${{ secrets.INSTALLATION_FILES }}
           FORGE_CLIENT_ID: ${{ secrets.FORGE_CLIENT_ID }}
           FORGE_CLIENT_SECRET: ${{ secrets.FORGE_CLIENT_SECRET }}

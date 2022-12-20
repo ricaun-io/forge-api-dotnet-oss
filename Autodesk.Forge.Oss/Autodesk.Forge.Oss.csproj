@@ -35,7 +35,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Autodesk.Forge.Oss</PackageId>
+    <PackageId>ricaun.Autodesk.Forge.Oss</PackageId>
     <Version>1.0.0</Version>
     <ProjectGuid>{54AC7247-0A9C-4A56-835B-D1790800647B}</ProjectGuid>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <AssemblyName>ricaun.$(PackageId)</AssemblyName>
+    <AssemblyName>$(PackageId)</AssemblyName>
     <Product>$(PackageId)</Product>
     <Copyright>Copyright © $(CopyrightYears) $(Company)</Copyright>
   </PropertyGroup>
