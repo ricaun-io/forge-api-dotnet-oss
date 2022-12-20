@@ -10,10 +10,15 @@ namespace Autodesk.Forge.Oss.Tests
 {
     public class ObjectApiTests
     {
-        private static Autodesk.Forge.Oss.OssClient OssClient = OssClientFactory.CreateDefault();
+        private static Autodesk.Forge.Oss.OssClient OssClient;
         private static string BucketKey;
         private static string ObjectName;
         private static string DataString;
+
+        public ObjectApiTests()
+        {
+            OssClient = OssClientFactory.CreateDefault();
+        }
 
         [SetUp]
         public async Task ObjectApi_CreateBucket()

@@ -6,8 +6,14 @@ namespace Autodesk.Forge.Oss.Tests
 {
     public class BucketApiTests
     {
-        private static Autodesk.Forge.Oss.OssClient OssClient = OssClientFactory.CreateDefault();
-        private static string BucketKey = TestFactory.CreateBucketKey();
+        private static Autodesk.Forge.Oss.OssClient OssClient;
+        private static string BucketKey;
+
+        public BucketApiTests()
+        {
+            OssClient = OssClientFactory.CreateDefault();
+            BucketKey = TestFactory.CreateBucketKey();
+        }
 
         [Test]
         public async Task BucketApi_Show()
