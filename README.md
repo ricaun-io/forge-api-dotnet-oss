@@ -1,4 +1,4 @@
-# forge-api-dotnet-oss
+# Autodesk.Forge.Oss
 
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
@@ -51,6 +51,40 @@ internal class Program
         Console.WriteLine(buckets);
     }
 }
+```
+
+## API Reference
+### Bundle 
+```csharp
+Buckets buckets = await ossClient.GetBucketsAsync();
+Bucket bucket = await ossClient.CreateBucketAsync(bucketKey);
+Bucket bucket = await ossClient.TryGetBucketDetailsAsync(bucketKey);
+Bucket bucket = await ossClient.GetBucketDetailsAsync(bucketKey);
+await ossClient.DeleteBucketAsync(bucketKey);
+```
+
+### Object 
+```csharp
+BucketObjects bucketObjects = await ossClient.GetObjectsAsync(bucketKey);
+Stream stream = await ossClient.GetObjectAsync(bucketKey, objectName);
+ObjectDetails objectDetails = await ossClient.GetObjectDetailsAsync(bucketKey, objectName);
+ObjectDetails objectDetails = await ossClient.UploadObjectAsync(bucketKey, objectName);
+ObjectDetails objectDetails = await ossClient.UploadChunkAsync(bucketKey, objectName);
+ObjectDetails objectDetails = await ossClient.CopyToAsync(bucketKey, objectName, newObjectName);
+await ossClient.DeleteObjectAsync(bucketKey, objectName);
+```
+
+### Signed 
+```csharp
+PostObjectSigned postObjectSigned = await ossClient.CreateSignedResourceAsync(bucketKey, objectName, postBucketsSigned);
+```
+
+### FileExtension 
+```csharp
+ObjectDetails objectDetails = await ossClient.UploadFileAsync(bucketKey, objectName, localFullName);
+await ossClient.DownloadFileAsync(bucketKey, objectName, localFullName);
+string signedUrl = await ossClient.CreateSignedFileAsync(bucketKey, objectName);
+string signedUrl = await ossClient.CreateSignedFileWriteAsync(bucketKey, objectName);
 ```
 
 ## Release

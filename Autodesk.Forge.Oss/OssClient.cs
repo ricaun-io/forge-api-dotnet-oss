@@ -218,11 +218,11 @@ namespace Autodesk.Forge.Oss
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="bucketKey">URL-encoded bucket key</param>
 		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="newObjName">URL-encoded Object key to use as the destination</param>
+		/// <param name="newObjectName">URL-encoded Object key to use as the destination</param>
 		/// <returns>Task of ObjectDetails</returns>
-        public async Task<ObjectDetails> CopyToAsync(string bucketKey, string objectName, string newObjName)
+        public async Task<ObjectDetails> CopyToAsync(string bucketKey, string objectName, string newObjectName)
         {
-            var value = await this.ObjectsApi.CopyToAsync(bucketKey, objectName, newObjName) as DynamicJsonResponse;
+            var value = await this.ObjectsApi.CopyToAsync(bucketKey, objectName, newObjectName) as DynamicJsonResponse;
             return value.ToObject<ObjectDetails>();
         }
         /// <summary>
