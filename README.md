@@ -10,6 +10,11 @@
 
 .NET SDK for **Data Management v2 API** for `Object Storage Service (OSS)`, for more information, please visit  [official documentation](https://aps.autodesk.com/en/docs/data/v2)
 
+### PackageReference
+```xml
+<PackageReference Include="ricaun.Autodesk.Forge.Oss" Version="*" />
+```
+
 ### Requirements
 
 - [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or later
@@ -31,8 +36,11 @@ FORGE_CLIENT_ID=<your client id>
 FORGE_CLIENT_SECRET=<your client secret>
 ```
 
-#### By directly creating API objects
+## API Reference
 
+The package `ricaun.Autodesk.Forge.Oss` use the namespace `Autodesk.Forge.Oss`.
+
+### OssClient
 ```csharp
 using Autodesk.Forge.Oss;
 using System;
@@ -54,7 +62,6 @@ internal class Program
 }
 ```
 
-## API Reference
 ### Bundle 
 ```csharp
 Buckets buckets = await ossClient.GetBucketsAsync();
