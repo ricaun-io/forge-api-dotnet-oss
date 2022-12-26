@@ -51,7 +51,7 @@ namespace Autodesk.Forge.Oss
         /// <returns></returns>
         private Bearer GetBearer()
         {
-            return GetBearerAsync().GetAwaiter().GetResult();
+            return Task.Run(GetBearerAsync).GetAwaiter().GetResult();
         }
 
         /// <summary>
