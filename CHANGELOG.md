@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.1] / 2022-12-26
 ### Fixed
-- Fix `deadlock` when convert async to sync in the `Configuration.GetBearer`.
+- Fix `deadlock` when converting async to sync in the `Configuration.GetBearer`.
 
 ## [1.0.0] / 2022-12-20
 ### General
