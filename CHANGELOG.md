@@ -20,5 +20,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `Autodesk.Forge.Oss.Tests` project
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.0.2]: ../../compare/1.0.1...1.0.2
 [1.0.1]: ../../compare/1.0.0...1.0.1
 [1.0.0]: ../../compare/1.0.0
