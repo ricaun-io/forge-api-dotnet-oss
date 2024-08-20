@@ -4,7 +4,7 @@
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
-[![Release](https://img.shields.io/nuget/v/ricaun.Autodesk.Forge.Oss?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/ricaun.Autodesk.Forge.Oss)
+[![Nuget](https://img.shields.io/nuget/v/ricaun.Autodesk.Forge.Oss?logo=nuget&label=nuget&color=blue)](https://www.nuget.org/packages/ricaun.Autodesk.Forge.Oss)
 
 ## Overview
 
@@ -18,7 +18,7 @@
 ### Requirements
 
 - [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or later
-- A registered app on the [Forge Developer Portal](http://forge.autodesk.com). 
+- A registered app on the [Autodesk Platform Service](https://aps.autodesk.com/). 
 
 ### Dependencies
 

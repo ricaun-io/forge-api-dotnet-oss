@@ -72,6 +72,9 @@
             "type": "string"
           }
         },
+        "ReleaseFolder": {
+          "type": "string"
+        },
         "ReleaseNameVersion": {
           "type": "boolean"
         },
@@ -132,6 +135,9 @@
           "type": "string"
         },
         "TestResults": {
+          "type": "boolean"
+        },
+        "UnlistNuget": {
           "type": "boolean"
         },
         "Verbosity": {
