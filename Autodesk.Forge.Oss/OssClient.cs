@@ -10,7 +10,7 @@ namespace Autodesk.Forge.Oss
     /// <summary>
     /// OssClient
     /// </summary>
-    public class OssClient
+    public partial class OssClient
     {
         /// <summary>
         /// BucketsApi
@@ -146,22 +146,35 @@ namespace Autodesk.Forge.Oss
             var value = await this.ObjectsApi.GetObjectsAsync(bucketKey, limit, beginsWith, startAt) as DynamicJsonResponse;
             return value.ToObject<BucketObjects>();
         }
+        //      /// <summary>
+        ///// Download an object.
+        ///// </summary>
+        ///// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        ///// <param name="bucketKey">URL-encoded bucket key</param>
+        ///// <param name="objectName">URL-encoded object name</param>
+        ///// <param name="range">A range of bytes to download from the specified object. (optional)</param>
+        ///// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
+        ///// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
+        ///// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
+        ///// <returns>Task of System.IO.Stream</returns>
+        //[Obsolete]
+        //public async Task<Stream> GetObjectAsync(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
+        //{
+        //    var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
+        //    return value as Stream;
+        //}
         /// <summary>
-		/// Download an object.
-		/// </summary>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="range">A range of bytes to download from the specified object. (optional)</param>
-		/// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
-		/// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
-		/// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
-		/// <returns>Task of System.IO.Stream</returns>
-        public async Task<Stream> GetObjectAsync(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
+        /// GetObjectAsync using CreateSignedFileAsync and GetStreamAsync
+        /// </summary>
+        /// <param name="bucketKey"></param>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        public async Task<Stream> GetObjectAsync(string bucketKey, string objectName)
         {
-            var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
-            return value as Stream;
+            var signedUrl = await this.CreateSignedFileAsync(bucketKey, objectName);
+            return await new System.Net.Http.HttpClient().GetStreamAsync(signedUrl);
         }
+        
         /// <summary>
 		/// Returns object details in JSON format.
 		/// </summary>
@@ -188,6 +201,7 @@ namespace Autodesk.Forge.Oss
         /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
         /// <param name="contentType"></param>
         /// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
         public async Task<ObjectDetails> UploadObjectAsync(string bucketKey, string objectName, int? contentLength, Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream")
         {
             var value = await this.ObjectsApi.UploadObjectAsync(bucketKey, objectName, contentLength, body, contentDisposition, ifMatch, contentType) as DynamicJsonResponse;
@@ -207,6 +221,7 @@ namespace Autodesk.Forge.Oss
         /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
         /// <param name="contentType"></param>
         /// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
         public async Task<ObjectDetails> UploadChunkAsync(string bucketKey, string objectName, int? contentLength, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream")
         {
             var value = await this.ObjectsApi.UploadChunkAsync(bucketKey, objectName, contentLength, contentRange, sessionId, body, contentDisposition, ifMatch, contentType) as DynamicJsonResponse;
@@ -220,6 +235,7 @@ namespace Autodesk.Forge.Oss
 		/// <param name="objectName">URL-encoded object name</param>
 		/// <param name="newObjectName">URL-encoded Object key to use as the destination</param>
 		/// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
         public async Task<ObjectDetails> CopyToAsync(string bucketKey, string objectName, string newObjectName)
         {
             var value = await this.ObjectsApi.CopyToAsync(bucketKey, objectName, newObjectName) as DynamicJsonResponse;

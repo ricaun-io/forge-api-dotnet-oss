@@ -96,6 +96,8 @@ namespace Autodesk.Forge.Oss.Tests
         }
 
         [Test]
+        [Ignore("CopyToAsync does not work with s3")]
+        [Obsolete]
         public async Task ObjectApi_UploadCopyObject()
         {
             await OssClient.UploadFileAsync(BucketKey, ObjectName, ObjectName);

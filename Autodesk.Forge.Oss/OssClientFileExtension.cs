@@ -1,7 +1,9 @@
 ﻿using Autodesk.Forge.Model;
 using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Autodesk.Forge.Oss
@@ -11,6 +13,28 @@ namespace Autodesk.Forge.Oss
     /// </summary>
     public static class OssClientFileExtension
     {
+        /// <summary>
+        /// Uploads a file to the OSS bucket asynchronously.
+        /// </summary>
+        /// <param name="oss">The OssClient instance.</param>
+        /// <param name="bucketKey">The URL-encoded bucket key.</param>
+        /// <param name="objectName">The URL-encoded object name.</param>
+        /// <param name="localFullName">The local full name path of the file to upload.</param>
+        /// <returns>The ObjectDetails of the uploaded file.</returns>
+        public static async Task<ObjectDetails> UploadFileAsync(this OssClient oss, string bucketKey, string objectName, string localFullName)
+        {
+            var signeds3uploadResponse = await oss.GetS3UploadURLAsync(bucketKey, objectName);
+            var url = signeds3uploadResponse.urls.FirstOrDefault();
+
+            using (FileStream fileStream = File.OpenRead(localFullName))
+            {
+                HttpClient httpClient = new HttpClient();
+                StreamContent streamContent = new StreamContent(fileStream);
+                HttpResponseMessage response = await httpClient.PutAsync(url, streamContent);
+            }
+
+            return await oss.CompleteS3UploadAsync(bucketKey, objectName, signeds3uploadResponse.uploadKey);
+        }
         #region File
         /// <summary>
         /// Upload File
@@ -21,7 +45,8 @@ namespace Autodesk.Forge.Oss
 		/// <param name="objectName">URL-encoded object name</param>
         /// <param name="localFullName">Local full name path</param>
         /// <returns></returns>
-        public static async Task<ObjectDetails> UploadFileAsync(this OssClient oss, string bucketKey, string objectName, string localFullName)
+        [Obsolete]
+        internal static async Task<ObjectDetails> UploadFileAsyncObsolete(this OssClient oss, string bucketKey, string objectName, string localFullName)
         {
             ObjectDetails objectDetails = null;
 
