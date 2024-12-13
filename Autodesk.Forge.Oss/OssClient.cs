@@ -103,15 +103,15 @@ namespace Autodesk.Forge.Oss
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketKey">Bucket key (required).</param>
-        /// <param name="allow">.</param>
-        /// <param name="policyKey">[Data retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/)  Acceptable values: &#x60;transient&#x60;, &#x60;temporary&#x60; or &#x60;persistent&#x60;  (required).</param>
         /// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+        /// <param name="policyKey">[Data retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/)  Acceptable values: &#x60;transient&#x60;, &#x60;temporary&#x60; or &#x60;persistent&#x60;  (required).</param>
+        /// <param name="allow">.</param>
         /// <returns></returns>
         public async Task<Bucket> CreateBucketAsync(
             string bucketKey,
-            List<PostBucketsPayloadAllow> allow = null,
+            string region = null,
             PostBucketsPayload.PolicyKeyEnum policyKey = PostBucketsPayload.PolicyKeyEnum.Transient,
-            string region = null)
+            List<PostBucketsPayloadAllow> allow = null)
         {
             var postBuckets = new PostBucketsPayload(bucketKey, allow, policyKey);
             return await this.CreateBucketAsync(postBuckets, region);

@@ -40,7 +40,7 @@ namespace Autodesk.Forge.Oss.Tests
         public async Task BucketApi_CreateAndDelete_Region(string region)
         {
             var bucketKey = $"{BucketKey}_{region}".ToLower();
-            var bucketCreated = await OssClient.CreateBucketAsync(bucketKey, region: region);
+            var bucketCreated = await OssClient.CreateBucketAsync(bucketKey, region);
             Assert.AreEqual(bucketKey, bucketCreated.BucketKey);
             Assert.IsNotNull(await OssClient.GetBucketDetailsAsync(bucketKey));
 
