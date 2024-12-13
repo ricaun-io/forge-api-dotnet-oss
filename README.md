@@ -32,6 +32,13 @@
 By default the Forge credentials could be defined with the following environment variables:
 
 ```bash
+APS_CLIENT_ID=<your client id>
+APS_CLIENT_SECRET=<your client secret>
+```
+
+or
+
+```bash
 FORGE_CLIENT_ID=<your client id>
 FORGE_CLIENT_SECRET=<your client secret>
 ```
@@ -77,8 +84,8 @@ BucketObjects bucketObjects = await ossClient.GetObjectsAsync(bucketKey);
 Stream stream = await ossClient.GetObjectAsync(bucketKey, objectName);
 ObjectDetails objectDetails = await ossClient.GetObjectDetailsAsync(bucketKey, objectName);
 ObjectDetails objectDetails = await ossClient.UploadObjectAsync(bucketKey, objectName);
-ObjectDetails objectDetails = await ossClient.UploadChunkAsync(bucketKey, objectName);
-ObjectDetails objectDetails = await ossClient.CopyToAsync(bucketKey, objectName, newObjectName);
+ObjectDetails objectDetails = await ossClient.GetS3UploadURLAsync(bucketKey, objectName);
+ObjectDetails objectDetails = await ossClient.CompleteS3UploadAsync(bucketKey, objectName, uploadKey);
 await ossClient.DeleteObjectAsync(bucketKey, objectName);
 ```
 

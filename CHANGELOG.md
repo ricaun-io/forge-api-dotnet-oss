@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Updated
 - Remove obsolete endpoints and use `S3`.
 - Update `UploadFileAsync` to support multi-part upload.
+- Add `APS_CLIENT_ID`, `APS_CLIENT_SECRET` to the `Configuration`.
 
 ## [2.0.0] / 2024-08-20
 ### Features

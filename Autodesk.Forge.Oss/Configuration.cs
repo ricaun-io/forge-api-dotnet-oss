@@ -61,8 +61,8 @@ namespace Autodesk.Forge.Oss
         /// <returns></returns>
         private async Task<Bearer> GetBearerAsync()
         {
-            string clientId = ClientId ?? Environment.GetEnvironmentVariable("FORGE_CLIENT_ID");
-            string clientSecret = ClientSecret ?? Environment.GetEnvironmentVariable("FORGE_CLIENT_SECRET");
+            string clientId = ClientId ?? Environment.GetEnvironmentVariable("APS_CLIENT_ID") ?? Environment.GetEnvironmentVariable("FORGE_CLIENT_ID");
+            string clientSecret = ClientSecret ?? Environment.GetEnvironmentVariable("APS_CLIENT_SECRET") ?? Environment.GetEnvironmentVariable("FORGE_CLIENT_SECRET");
 
             if (string.IsNullOrEmpty(clientId))
                 throw new Exception("'clientId' parameter is null or empty.");
