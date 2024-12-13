@@ -105,16 +105,16 @@ namespace Autodesk.Forge.Oss
         /// <param name="bucketKey">Bucket key (required).</param>
         /// <param name="allow">.</param>
         /// <param name="policyKey">[Data retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/)  Acceptable values: &#x60;transient&#x60;, &#x60;temporary&#x60; or &#x60;persistent&#x60;  (required).</param>
-        /// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+        /// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
         /// <returns></returns>
         public async Task<Bucket> CreateBucketAsync(
             string bucketKey,
             List<PostBucketsPayloadAllow> allow = null,
             PostBucketsPayload.PolicyKeyEnum policyKey = PostBucketsPayload.PolicyKeyEnum.Transient,
-            string xAdsRegion = null)
+            string region = null)
         {
             var postBuckets = new PostBucketsPayload(bucketKey, allow, policyKey);
-            return await this.CreateBucketAsync(postBuckets, xAdsRegion);
+            return await this.CreateBucketAsync(postBuckets, region);
         }
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace Autodesk.Forge.Oss
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of Bucket</returns>
-        public async Task<Bucket> CreateBucketAsync(PostBucketsPayload postBuckets, string xAdsRegion = null)
+        public async Task<Bucket> CreateBucketAsync(PostBucketsPayload postBuckets, string region = null)
         {
-            var value = await BucketsApi.CreateBucketAsync(postBuckets, xAdsRegion) as DynamicJsonResponse;
+            var value = await BucketsApi.CreateBucketAsync(postBuckets, region) as DynamicJsonResponse;
             return value.ToObject<Bucket>();
         }
         #endregion

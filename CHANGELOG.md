@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Create `Autodesk.Forge` internal project.
 ### Autodesk.Forge
 - Copy `BucketsApi`, `ObjectsApi`, `TwoLeggedApi` from the original `forge-api-dotnet-client` repository.
+- Update deprecated `x-ads-region` to `region` when creating a bucket. [buckets-POST](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)
+### Tests
+- Add `BucketApi_CreateAndDelete_Region`
 
 ## [2.1.0] / 2024-12-12
 ### Updated

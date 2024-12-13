@@ -43,10 +43,10 @@ namespace Autodesk.Forge {
 		/// </remarks>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Bucket</returns>
 		/*Bucket*/
-		dynamic CreateBucket (PostBucketsPayload postBuckets, string xAdsRegion = null);
+		dynamic CreateBucket (PostBucketsPayload postBuckets, string region = null);
 
 		/// <summary>
 		/// 
@@ -56,9 +56,9 @@ namespace Autodesk.Forge {
 		/// </remarks>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>ApiResponse of Bucket</returns>
-		ApiResponse</*Bucket*/dynamic> CreateBucketWithHttpInfo (PostBucketsPayload postBuckets, string xAdsRegion = null);
+		ApiResponse</*Bucket*/dynamic> CreateBucketWithHttpInfo (PostBucketsPayload postBuckets, string region = null);
 		/// <summary>
 		/// 
 		/// </summary>
@@ -138,9 +138,9 @@ namespace Autodesk.Forge {
 		/// </remarks>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of Bucket</returns>
-		System.Threading.Tasks.Task</*Bucket*/dynamic> CreateBucketAsync (PostBucketsPayload postBuckets, string xAdsRegion = null);
+		System.Threading.Tasks.Task</*Bucket*/dynamic> CreateBucketAsync (PostBucketsPayload postBuckets, string region = null);
 
 		/// <summary>
 		/// 
@@ -150,9 +150,9 @@ namespace Autodesk.Forge {
 		/// </remarks>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of ApiResponse (Bucket)</returns>
-		System.Threading.Tasks.Task<ApiResponse</*Bucket*/dynamic>> CreateBucketAsyncWithHttpInfo (PostBucketsPayload postBuckets, string xAdsRegion = null);
+		System.Threading.Tasks.Task<ApiResponse</*Bucket*/dynamic>> CreateBucketAsyncWithHttpInfo (PostBucketsPayload postBuckets, string region = null);
 
 		/// <summary>
 		/// 
@@ -230,8 +230,8 @@ namespace Autodesk.Forge {
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
 	public partial class BucketsApi : IBucketsApi {
-
-		private Autodesk.Forge.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private const string HeaderParamRegion = "region";
+        private Autodesk.Forge.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BucketsApi"/> class.
@@ -329,10 +329,10 @@ namespace Autodesk.Forge {
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Bucket</returns>
-		public /*Bucket*/dynamic CreateBucket (PostBucketsPayload postBuckets, string xAdsRegion = null) {
-			ApiResponse</*Bucket*/dynamic> localVarResponse = CreateBucketWithHttpInfo (postBuckets, xAdsRegion);
+		public /*Bucket*/dynamic CreateBucket (PostBucketsPayload postBuckets, string region = null) {
+			ApiResponse</*Bucket*/dynamic> localVarResponse = CreateBucketWithHttpInfo (postBuckets, region);
 			return localVarResponse.Data;
 		}
 
@@ -341,9 +341,9 @@ namespace Autodesk.Forge {
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>ApiResponse of Bucket</returns>
-		public ApiResponse</*Bucket*/dynamic> CreateBucketWithHttpInfo (PostBucketsPayload postBuckets, string xAdsRegion = null) {
+		public ApiResponse</*Bucket*/dynamic> CreateBucketWithHttpInfo (PostBucketsPayload postBuckets, string region = null) {
 			// verify the required parameter 'postBuckets' is set
 			if ( postBuckets == null )
 				throw new ApiException (400, "Missing required parameter 'postBuckets' when calling BucketsApi->CreateBucket");
@@ -374,10 +374,10 @@ namespace Autodesk.Forge {
 			// set "format" to json by default
 			// e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
 			localVarPathParams.Add ("format", "json");
-			if ( xAdsRegion != null && localVarHeaderParams.ContainsKey ("x-ads-region") )
-				localVarHeaderParams ["x-ads-region"] = Configuration.ApiClient.ParameterToString (xAdsRegion); // header parameter
-			else if ( xAdsRegion != null )
-				localVarHeaderParams.Add ("x-ads-region", Configuration.ApiClient.ParameterToString (xAdsRegion)); // header parameter
+			if ( region != null && localVarHeaderParams.ContainsKey (HeaderParamRegion) )
+				localVarHeaderParams [HeaderParamRegion] = Configuration.ApiClient.ParameterToString (region); // header parameter
+			else if ( region != null )
+				localVarHeaderParams.Add (HeaderParamRegion, Configuration.ApiClient.ParameterToString (region)); // header parameter
 			if ( postBuckets != null && postBuckets.GetType () == typeof (byte []) ) // http body (model) parameter
 			{
 				localVarPostBody = postBuckets; // byte array
@@ -426,10 +426,10 @@ namespace Autodesk.Forge {
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of Bucket</returns>
-		public async System.Threading.Tasks.Task</*Bucket*/dynamic> CreateBucketAsync (PostBucketsPayload postBuckets, string xAdsRegion = null) {
-			ApiResponse</*Bucket*/dynamic> localVarResponse = await CreateBucketAsyncWithHttpInfo (postBuckets, xAdsRegion);
+		public async System.Threading.Tasks.Task</*Bucket*/dynamic> CreateBucketAsync (PostBucketsPayload postBuckets, string region = null) {
+			ApiResponse</*Bucket*/dynamic> localVarResponse = await CreateBucketAsyncWithHttpInfo (postBuckets, region);
 			return localVarResponse.Data;
 
 		}
@@ -439,9 +439,9 @@ namespace Autodesk.Forge {
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of ApiResponse (Bucket)</returns>
-		public async System.Threading.Tasks.Task<ApiResponse</*Bucket*/dynamic>> CreateBucketAsyncWithHttpInfo (PostBucketsPayload postBuckets, string xAdsRegion = null) {
+		public async System.Threading.Tasks.Task<ApiResponse</*Bucket*/dynamic>> CreateBucketAsyncWithHttpInfo (PostBucketsPayload postBuckets, string region = null) {
 			// verify the required parameter 'postBuckets' is set
 			if ( postBuckets == null )
 				throw new ApiException (400, "Missing required parameter 'postBuckets' when calling BucketsApi->CreateBucket");
@@ -472,10 +472,10 @@ namespace Autodesk.Forge {
 			// set "format" to json by default
 			// e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
 			localVarPathParams.Add ("format", "json");
-			if ( xAdsRegion != null && localVarHeaderParams.ContainsKey ("x-ads-region") )
-				localVarHeaderParams ["x-ads-region"] = Configuration.ApiClient.ParameterToString (xAdsRegion); // header parameter
-			else if (xAdsRegion != null )
-				localVarHeaderParams.Add ("x-ads-region", Configuration.ApiClient.ParameterToString (xAdsRegion)); // header parameter
+			if ( region != null && localVarHeaderParams.ContainsKey (HeaderParamRegion) )
+				localVarHeaderParams [HeaderParamRegion] = Configuration.ApiClient.ParameterToString (region); // header parameter
+			else if (region != null )
+				localVarHeaderParams.Add (HeaderParamRegion, Configuration.ApiClient.ParameterToString (region)); // header parameter
 			if ( postBuckets != null && postBuckets.GetType () == typeof (byte []) ) // http body (model) parameter
 			{
 				localVarPostBody = postBuckets; // byte array
