@@ -146,23 +146,23 @@ namespace Autodesk.Forge.Oss
             var value = await this.ObjectsApi.GetObjectsAsync(bucketKey, limit, beginsWith, startAt) as DynamicJsonResponse;
             return value.ToObject<BucketObjects>();
         }
-        //      /// <summary>
-        ///// Download an object.
-        ///// </summary>
-        ///// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-        ///// <param name="bucketKey">URL-encoded bucket key</param>
-        ///// <param name="objectName">URL-encoded object name</param>
-        ///// <param name="range">A range of bytes to download from the specified object. (optional)</param>
-        ///// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
-        ///// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
-        ///// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
-        ///// <returns>Task of System.IO.Stream</returns>
-        //[Obsolete]
-        //public async Task<Stream> GetObjectAsync(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
-        //{
-        //    var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
-        //    return value as Stream;
-        //}
+        /// <summary>
+        /// Download an object.
+        /// </summary>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="range">A range of bytes to download from the specified object. (optional)</param>
+        /// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
+        /// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
+        /// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        [Obsolete]
+        internal async Task<Stream> GetObjectAsyncObsolete(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
+        {
+            var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
+            return value as Stream;
+        }
         /// <summary>
         /// GetObjectAsync using CreateSignedFileAsync and GetStreamAsync
         /// </summary>

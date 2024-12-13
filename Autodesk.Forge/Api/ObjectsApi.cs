@@ -432,34 +432,36 @@ namespace Autodesk.Forge {
 		/// <returns>ApiResponse of ObjectDetails</returns>
 		ApiResponse</*ObjectDetails*/dynamic> UploadSignedResourcesChunkWithHttpInfo (string id, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string xAdsRegion = null, string contentType = "application/octet-stream");
 
-		#endregion Synchronous Operations
+        #endregion Synchronous Operations
 
-		#region Asynchronous Operations
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Copies an object to another object name in the same bucket.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="newObjName">URL-encoded Object key to use as the destination</param>
-		/// <returns>Task of ObjectDetails</returns>
-		System.Threading.Tasks.Task</*ObjectDetails*/dynamic> CopyToAsync (string bucketKey, string objectName, string newObjName);
+        #region Asynchronous Operations
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copies an object to another object name in the same bucket.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="newObjName">URL-encoded Object key to use as the destination</param>
+        /// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task</*ObjectDetails*/dynamic> CopyToAsync (string bucketKey, string objectName, string newObjName);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Copies an object to another object name in the same bucket.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="newObjName">URL-encoded Object key to use as the destination</param>
-		/// <returns>Task of ApiResponse (ObjectDetails)</returns>
-		System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> CopyToAsyncWithHttpInfo (string bucketKey, string objectName, string newObjName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copies an object to another object name in the same bucket.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="newObjName">URL-encoded Object key to use as the destination</param>
+        /// <returns>Task of ApiResponse (ObjectDetails)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> CopyToAsyncWithHttpInfo (string bucketKey, string objectName, string newObjName);
 
 		/// <summary>
 		/// 
@@ -539,37 +541,39 @@ namespace Autodesk.Forge {
 		/// <returns>Task of ApiResponse</returns>
 		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSignedResourceAsyncWithHttpInfo (string id, string region = null);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Download an object.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="range">A range of bytes to download from the specified object. (optional)</param>
-		/// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
-		/// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
-		/// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
-		/// <returns>Task of System.IO.Stream</returns>
-		System.Threading.Tasks.Task</*System.IO.Stream*/dynamic> GetObjectAsync (string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Download an object.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="range">A range of bytes to download from the specified object. (optional)</param>
+        /// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
+        /// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
+        /// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task</*System.IO.Stream*/dynamic> GetObjectAsync (string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Download an object.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="range">A range of bytes to download from the specified object. (optional)</param>
-		/// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
-		/// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
-		/// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
-		/// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-		System.Threading.Tasks.Task<ApiResponse</*System.IO.Stream*/dynamic>> GetObjectAsyncWithHttpInfo (string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Download an object.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="range">A range of bytes to download from the specified object. (optional)</param>
+        /// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
+        /// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
+        /// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse</*System.IO.Stream*/dynamic>> GetObjectAsyncWithHttpInfo (string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null);
 
 		/// <summary>
 		/// 
@@ -685,73 +689,77 @@ namespace Autodesk.Forge {
 		/// <returns>Task of ApiResponse</returns>
 		System.Threading.Tasks.Task<ApiResponse<Object>> GetStatusBySessionIdAsyncWithHttpInfo (string bucketKey, string objectName, string sessionId);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// This endpoint allows resumable uploads for large files in chunks.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="contentLength">Indicates the size of the request body.</param>
-		/// <param name="contentRange">Byte range of a segment being uploaded</param>
-		/// <param name="sessionId">Unique identifier of a session of a file being uploaded</param>
-		/// <param name="body"></param>
-		/// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
-		/// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
-		/// <returns>Task of ObjectDetails</returns>
-		System.Threading.Tasks.Task</*ObjectDetails*/dynamic> UploadChunkAsync (string bucketKey, string objectName, int? contentLength, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows resumable uploads for large files in chunks.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="contentLength">Indicates the size of the request body.</param>
+        /// <param name="contentRange">Byte range of a segment being uploaded</param>
+        /// <param name="sessionId">Unique identifier of a session of a file being uploaded</param>
+        /// <param name="body"></param>
+        /// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
+        /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
+        /// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task</*ObjectDetails*/dynamic> UploadChunkAsync (string bucketKey, string objectName, int? contentLength, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// This endpoint allows resumable uploads for large files in chunks.
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="contentLength">Indicates the size of the request body.</param>
-		/// <param name="contentRange">Byte range of a segment being uploaded</param>
-		/// <param name="sessionId">Unique identifier of a session of a file being uploaded</param>
-		/// <param name="body"></param>
-		/// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
-		/// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
-		/// <returns>Task of ApiResponse (ObjectDetails)</returns>
-		System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> UploadChunkAsyncWithHttpInfo (string bucketKey, string objectName, int? contentLength, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows resumable uploads for large files in chunks.
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="contentLength">Indicates the size of the request body.</param>
+        /// <param name="contentRange">Byte range of a segment being uploaded</param>
+        /// <param name="sessionId">Unique identifier of a session of a file being uploaded</param>
+        /// <param name="body"></param>
+        /// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
+        /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
+        /// <returns>Task of ApiResponse (ObjectDetails)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> UploadChunkAsyncWithHttpInfo (string bucketKey, string objectName, int? contentLength, string contentRange, string sessionId, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Upload an object. If the specified object name already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object name combination. 
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="contentLength">Indicates the size of the request body.</param>
-		/// <param name="body"></param>
-		/// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
-		/// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
-		/// <returns>Task of ObjectDetails</returns>
-		System.Threading.Tasks.Task</*ObjectDetails*/dynamic> UploadObjectAsync (string bucketKey, string objectName, int? contentLength, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload an object. If the specified object name already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object name combination. 
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="contentLength">Indicates the size of the request body.</param>
+        /// <param name="body"></param>
+        /// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
+        /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
+        /// <returns>Task of ObjectDetails</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task</*ObjectDetails*/dynamic> UploadObjectAsync (string bucketKey, string objectName, int? contentLength, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// Upload an object. If the specified object name already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object name combination. 
-		/// </remarks>
-		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="bucketKey">URL-encoded bucket key</param>
-		/// <param name="objectName">URL-encoded object name</param>
-		/// <param name="contentLength">Indicates the size of the request body.</param>
-		/// <param name="body"></param>
-		/// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
-		/// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
-		/// <returns>Task of ApiResponse (ObjectDetails)</returns>
-		System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> UploadObjectAsyncWithHttpInfo (string bucketKey, string objectName, int? contentLength, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload an object. If the specified object name already exists in the bucket, the uploaded content will overwrite the existing content for the bucket name/object name combination. 
+        /// </remarks>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="contentLength">Indicates the size of the request body.</param>
+        /// <param name="body"></param>
+        /// <param name="contentDisposition">The suggested default filename when downloading this object to a file after it has been uploaded. (optional)</param>
+        /// <param name="ifMatch">If-Match header containing a SHA-1 hash of the bytes in the request body can be sent by the calling service or client application with the request. If present, OSS will use the value of If-Match header to verify that a SHA-1 calculated for the uploaded bytes server side matches what was sent in the header. If not, the request is failed with a status 412 Precondition Failed and the data is not written.  (optional)</param>
+        /// <returns>Task of ApiResponse (ObjectDetails)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse</*ObjectDetails*/dynamic>> UploadObjectAsyncWithHttpInfo (string bucketKey, string objectName, int? contentLength, System.IO.Stream body, string contentDisposition = null, string ifMatch = null, string contentType = "application/octet-stream");
 
 		/// <summary>
 		/// 
