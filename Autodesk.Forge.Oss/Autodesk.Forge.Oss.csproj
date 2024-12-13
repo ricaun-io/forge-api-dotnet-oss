@@ -55,7 +55,6 @@
 
   <PropertyGroup>
     <PackageId>ricaun.Autodesk.Forge.Oss</PackageId>
-    <Version>3.0.0-alpha</Version>
     <ProjectGuid>{54AC7247-0A9C-4A56-835B-D1790800647B}</ProjectGuid>
   </PropertyGroup>
 
