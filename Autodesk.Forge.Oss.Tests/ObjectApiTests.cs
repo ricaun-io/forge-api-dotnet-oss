@@ -125,6 +125,9 @@ namespace Autodesk.Forge.Oss.Tests
         [TestCase(6)]
         [TestCase(8)]
         [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(24)]
+        [TestCase(36)]
         public async Task ObjectApi_UploadBigFile(int mbSize)
         {
             var fileSize = CreateDumpFile(ObjectName, mbSize);

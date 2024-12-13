@@ -32,11 +32,21 @@ namespace Autodesk.Forge.Oss.Tests
             File.Delete(ObjectName);
             await OssClient.DeleteBucketAsync(BucketKey);
         }
+
         [Test]
         public async Task ObjectApi_GetS3UploadURL()
         {
             var result = await OssClient.GetS3UploadURLAsync(BucketKey, ObjectName);
-            Console.WriteLine(result);
+            Console.WriteLine(result.ToJson());
+        }
+
+        [TestCase(2)]
+        [TestCase(3)]
+        public async Task ObjectApi_GetS3UploadURL_Parts(int parts)
+        {
+            var result = await OssClient.GetS3UploadURLAsync(BucketKey, ObjectName, parts);
+            Console.WriteLine(result.ToJson());
+            Assert.AreEqual(parts, result.urls.Length);
         }
     }
 }

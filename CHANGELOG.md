@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.1.0] / 2024-12-12
 ### Updated
 - Remove obsolete endpoints and use `S3`.
+- Update `UploadFileAsync` to support multi-part upload.
 
 ## [2.0.0] / 2024-08-20
 ### Features
