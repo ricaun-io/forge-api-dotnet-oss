@@ -14,8 +14,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autodesk.Forge" Version="*" />
+    <!--<PackageReference Include="Autodesk.Forge" Version="*" />-->
+    <ProjectReference Include="..\Autodesk.Forge\Autodesk.Forge.csproj" PrivateAssets="all"  />
+    <PackageReference Include="Newtonsoft.Json" Version="*" />
+    <PackageReference Include="RestSharp" Version="*" />
   </ItemGroup>
+
+  <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
+    <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#targetsfortfmspecificcontentinpackage -->
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <Target Name="CustomContentTarget">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(TargetDir)\ricaun.Autodesk.Forge.dll">
+        <PackagePath>lib/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include="$(TargetDir)\ricaun.Autodesk.Forge.xml" Condition="Exists('$(TargetDir)\ricaun.Autodesk.Forge.xml')">
+        <PackagePath>lib/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
 
   <!-- Release -->
   <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
@@ -36,7 +55,6 @@
 
   <PropertyGroup>
     <PackageId>ricaun.Autodesk.Forge.Oss</PackageId>
-    <Version>2.1.0</Version>
     <ProjectGuid>{54AC7247-0A9C-4A56-835B-D1790800647B}</ProjectGuid>
   </PropertyGroup>
 
@@ -67,6 +85,10 @@
 
   <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
     <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

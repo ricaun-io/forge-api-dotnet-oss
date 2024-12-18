@@ -1,5 +1,7 @@
+using Autodesk.Forge.Client;
 using NUnit.Framework;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Autodesk.Forge.Oss.Tests
@@ -30,6 +32,38 @@ namespace Autodesk.Forge.Oss.Tests
             Assert.IsNotNull(await OssClient.GetBucketDetailsAsync(BucketKey));
             await OssClient.DeleteBucketAsync(BucketKey);
             Assert.IsNull(await OssClient.TryGetBucketDetailsAsync(BucketKey));
+        }
+
+        [TestCase("US")]
+        [TestCase("EMEA")]
+        [TestCase("AUS")]
+        public async Task BucketApi_CreateAndDelete_Region(string region)
+        {
+            var bucketKey = $"{BucketKey}_{region}".ToLower();
+            var bucketCreated = await OssClient.CreateBucketAsync(bucketKey, region);
+            Assert.AreEqual(bucketKey, bucketCreated.BucketKey);
+            Assert.IsNotNull(await OssClient.GetBucketDetailsAsync(bucketKey));
+
+
+            // Test file in the region
+            {
+                var ObjectName = TestFactory.CreateObjectName();
+                var DataString = TestFactory.CreateDataString();
+                File.WriteAllText(ObjectName, DataString);
+                var fileDetail = await OssClient.UploadFileAsync(bucketKey, ObjectName, ObjectName);
+                Assert.AreEqual(DataString.Length, fileDetail.Size);
+
+                var objectDetails = await OssClient.GetObjectDetailsAsync(bucketKey, ObjectName);
+                Assert.AreEqual(DataString.Length, objectDetails.Size);
+
+                await OssClient.DeleteObjectAsync(bucketKey, ObjectName);
+                Assert.ThrowsAsync<ApiException>(() => OssClient.GetObjectDetailsAsync(bucketKey, ObjectName));
+
+                File.Delete(ObjectName);
+            }
+
+            await OssClient.DeleteBucketAsync(bucketKey);
+            Assert.IsNull(await OssClient.TryGetBucketDetailsAsync(bucketKey));
         }
 
         [Ignore("Skip Delete Buckets")]

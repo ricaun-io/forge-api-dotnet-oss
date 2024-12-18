@@ -10,11 +10,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{D62567F0-6FCF-4C5B-B139-B2B219D51FDF}"
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG.md = CHANGELOG.md
+		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Forge.Oss.Tests", "Autodesk.Forge.Oss.Tests\Autodesk.Forge.Oss.Tests.csproj", "{6CF07E6C-9623-4B4E-A549-59ABDC74537D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autodesk.Forge.Oss.Tests", "Autodesk.Forge.Oss.Tests\Autodesk.Forge.Oss.Tests.csproj", "{6CF07E6C-9623-4B4E-A549-59ABDC74537D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autodesk.Forge", "Autodesk.Forge\Autodesk.Forge.csproj", "{A30518D1-F6D0-4190-81A7-142088761FB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +35,10 @@ Global
 		{6CF07E6C-9623-4B4E-A549-59ABDC74537D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CF07E6C-9623-4B4E-A549-59ABDC74537D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CF07E6C-9623-4B4E-A549-59ABDC74537D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30518D1-F6D0-4190-81A7-142088761FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30518D1-F6D0-4190-81A7-142088761FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30518D1-F6D0-4190-81A7-142088761FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30518D1-F6D0-4190-81A7-142088761FB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

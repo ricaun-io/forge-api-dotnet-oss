@@ -103,18 +103,18 @@ namespace Autodesk.Forge.Oss
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bucketKey">Bucket key (required).</param>
-        /// <param name="allow">.</param>
+        /// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
         /// <param name="policyKey">[Data retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/)  Acceptable values: &#x60;transient&#x60;, &#x60;temporary&#x60; or &#x60;persistent&#x60;  (required).</param>
-        /// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+        /// <param name="allow">.</param>
         /// <returns></returns>
         public async Task<Bucket> CreateBucketAsync(
             string bucketKey,
-            List<PostBucketsPayloadAllow> allow = null,
+            string region = null,
             PostBucketsPayload.PolicyKeyEnum policyKey = PostBucketsPayload.PolicyKeyEnum.Transient,
-            string xAdsRegion = null)
+            List<PostBucketsPayloadAllow> allow = null)
         {
             var postBuckets = new PostBucketsPayload(bucketKey, allow, policyKey);
-            return await this.CreateBucketAsync(postBuckets, xAdsRegion);
+            return await this.CreateBucketAsync(postBuckets, region);
         }
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace Autodesk.Forge.Oss
 		/// </summary>
 		/// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="postBuckets">Body Structure</param>
-		/// <param name="xAdsRegion">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
+		/// <param name="region">The region where the bucket resides Acceptable values: &#x60;US&#x60;, &#x60;EMEA&#x60; Default is &#x60;US&#x60;  (optional, default to US)</param>
 		/// <returns>Task of Bucket</returns>
-        public async Task<Bucket> CreateBucketAsync(PostBucketsPayload postBuckets, string xAdsRegion = null)
+        public async Task<Bucket> CreateBucketAsync(PostBucketsPayload postBuckets, string region = null)
         {
-            var value = await BucketsApi.CreateBucketAsync(postBuckets, xAdsRegion) as DynamicJsonResponse;
+            var value = await BucketsApi.CreateBucketAsync(postBuckets, region) as DynamicJsonResponse;
             return value.ToObject<Bucket>();
         }
         #endregion
@@ -146,23 +146,23 @@ namespace Autodesk.Forge.Oss
             var value = await this.ObjectsApi.GetObjectsAsync(bucketKey, limit, beginsWith, startAt) as DynamicJsonResponse;
             return value.ToObject<BucketObjects>();
         }
-        //      /// <summary>
-        ///// Download an object.
-        ///// </summary>
-        ///// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
-        ///// <param name="bucketKey">URL-encoded bucket key</param>
-        ///// <param name="objectName">URL-encoded object name</param>
-        ///// <param name="range">A range of bytes to download from the specified object. (optional)</param>
-        ///// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
-        ///// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
-        ///// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
-        ///// <returns>Task of System.IO.Stream</returns>
-        //[Obsolete]
-        //public async Task<Stream> GetObjectAsync(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
-        //{
-        //    var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
-        //    return value as Stream;
-        //}
+        /// <summary>
+        /// Download an object.
+        /// </summary>
+        /// <exception cref="Autodesk.Forge.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucketKey">URL-encoded bucket key</param>
+        /// <param name="objectName">URL-encoded object name</param>
+        /// <param name="range">A range of bytes to download from the specified object. (optional)</param>
+        /// <param name="ifNoneMatch">The value of this header is compared to the ETAG of the object. If they match, the body will not be included in the response. Only the object information will be included. (optional)</param>
+        /// <param name="ifModifiedSince">If the requested object has not been modified since the time specified in this field, an entity will not be returned from the server; instead, a 304 (not modified) response will be returned without any message body.  (optional)</param>
+        /// <param name="acceptEncoding">When gzip is specified, a gzip compressed stream of the object’s bytes will be returned in the response. Cannot use “Accept-Encoding:gzip” with Range header containing an end byte range. End byte range will not be honored if “Accept-Encoding: gzip” header is used.  (optional)</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        [Obsolete]
+        internal async Task<Stream> GetObjectAsyncObsolete(string bucketKey, string objectName, string range = null, string ifNoneMatch = null, DateTime? ifModifiedSince = null, string acceptEncoding = null)
+        {
+            var value = await this.ObjectsApi.GetObjectAsync(bucketKey, objectName, range, ifNoneMatch, ifModifiedSince, acceptEncoding);
+            return value as Stream;
+        }
         /// <summary>
         /// GetObjectAsync using CreateSignedFileAsync and GetStreamAsync
         /// </summary>
