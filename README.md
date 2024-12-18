@@ -22,10 +22,10 @@
 
 ### Dependencies
 
-- [Autodesk.Forge](https://github.com/Autodesk-Forge/forge-api-dotnet-client) assembly which provides services such as: 
-    - Forge [TwoLeggedApi](https://github.com/Autodesk-Forge/forge-api-dotnet-client/blob/master/src/Autodesk.Forge/Api/TwoLeggedApi.cs)
-    - Data Management [BucketsApi](https://github.com/Autodesk-Forge/forge-api-dotnet-client/blob/master/src/Autodesk.Forge/Api/BucketsApi.cs)
-    - Data Management [ObjectsApi](https://github.com/Autodesk-Forge/forge-api-dotnet-client/blob/master/src/Autodesk.Forge/Api/ObjectsApi.cs)
+- [Autodesk.Forge](Autodesk.Forge) assembly which provides services such as: 
+    - Forge [TwoLeggedApi](Autodesk.Forge/Api/TwoLeggedApi.cs)
+    - Data Management [BucketsApi](Autodesk.Forge/Api/BucketsApi.cs)
+    - Data Management [ObjectsApi](Autodesk.Forge/Api/ObjectsApi.cs)
 
 ### Configuration
 
